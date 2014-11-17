@@ -1,3 +1,23 @@
+/*
+ * Hue Controller
+ *
+ * Description:
+ *   Hueをclient jsから制御する
+ *
+ * Methods:
+ *   getLights():
+ *     lightの数を取得
+ *   lightTrriger(light, trigger):
+ *     指定のlightをon/off
+ *   changeBri(light, bri):
+ *     指定のlightのbrightnessを変更
+ *   effectTrriger(light, trigger):
+ *     指定のlightのeffectをon/off
+ *
+ * Author:
+ *   sota1235
+ */
+
 var HueController = function(ip, user) {
   this.ip = ip;
   this.user = user;
