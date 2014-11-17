@@ -3,15 +3,25 @@ Util
 
 過去に作った使いまわせそうな関数群
 
-## Functions
+### Description
 
-### hue.js
+使いまわせそうなコードを綺麗にしてここにしまっておく
 
-#### Requirement
+整理は気が向いた時にやっていく
+
+### Functions
+
+#### hue.js
+
+### Requirement
 
 * jQuery(you need $.Deferred)
 
 * [color-convert](https://github.com/harthur/color-convert/tree/gh-pages)
+
+### Licence
+
+This software is released under the MIT License, see LICENSE.txt.
 
 ## Author
 
