@@ -3,8 +3,9 @@
  * 部署ツリー作成用スクリプト
  */
 
-function makeTree($parintId, $orgs, $tree = [])
+function makeTree($parintId, $orgs)
 {
+    $tree = [];
     for($i=0;$i<count($orgs);) {
         $org = $orgs[$i];
         if($org[2] == $parintId) {
