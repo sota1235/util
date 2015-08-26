@@ -3,7 +3,7 @@
  * 部署ツリー作成用スクリプト
  */
 
-function makeTree($tree, $parintId, $orgs)
+function makeTree($parintId, $orgs, $tree = [])
 {
     for($i=0;$i<count($orgs);) {
         $org = $orgs[$i];
@@ -17,7 +17,7 @@ function makeTree($tree, $parintId, $orgs)
             array_splice($orgs, $i, 1);
             //array_push($child[$org[1]]['child'], makeTree([], $org[0], $orgs));
             //array_push($tree, $child);
-            $child[$org[1]]['child'] += makeTree([], $org[0], $orgs);
+            $child[$org[1]]['child'] += makeTree($org[0], $orgs);
             $tree += $child;
         } else {
             $i++;
@@ -40,5 +40,5 @@ $testCase = [
 ];
 
 echo "<pre>";
-echo json_encode(makeTree([], null, $testCase));
+echo json_encode(makeTree(null, $testCase));
 echo "</pre>";
