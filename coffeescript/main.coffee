@@ -7,11 +7,14 @@
 #   @sota1235
 
 class Util
-  rjust: (string, count, fill = ' ') ->
+  # example: ('hello', 3, ' ') -> return 'hello   '
+  rfill: (string, count, fill = ' ') ->
     new Array(count).join(fill) + string
 
-  ljust: (string, count, fill = ' ') ->
+  # example: ('hello', 3, ' ') -> return '   hello'
+  lfill: (string, count, fill = ' ') ->
     string + new Array(count).join(fill)
 
+  # example: ('s', 10') -> return 'ssssssssss'
   makeStringFromCharLoop: (char, count) ->
     new Array(count).join('char')
