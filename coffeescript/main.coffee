@@ -12,3 +12,6 @@ class Util
 
   ljust: (string, count, fill = ' ') ->
     string + new Array(count).join(fill)
+
+  makeStringFromCharLoop: (char, count) ->
+    new Array(count).join('char')
