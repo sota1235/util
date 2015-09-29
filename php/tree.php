@@ -28,6 +28,21 @@ function makeTree($parentId, $orgs)
     return $tree;
 }
 
+/**
+ * treeからarrayを生成
+ */
+function treeToArray($orgsTree, $depth = 0)
+{
+    $orgs = [];
+    foreach ($orgsTree as $name => $value) {
+        $orgs[] = [ "name" => $name, "id" => $value['id'], "depth" => $depth];
+        if (count($value['child']) !== 0) {
+            $orgs = array_merge($orgs, treeToArray($value['child'], $depth + 1));
+        }
+    }
+    return $orgs;
+}
+
 $testCase = [
     [1, "おいしんぼ", null],
     [2, "おいしん",   1],
@@ -41,6 +56,22 @@ $testCase = [
     [10,"さぼる",     8]
 ];
 
+$testCase2 = [
+    [1, 'アイスタイル',           null],
+    [2, 'テクノロジー本部',       1],
+    [3, '技術開発部',             2],
+    [4, 'メディアテクノロジー部', 2],
+    [5, 'デザインチーム',         3],
+    [6, 'MP本部',                 1],
+    [7, 'MP1部',                  6],
+    [8, 'MP2部',                  6],
+    [9, 'IBS',                    null],
+    [10,'IBS営業部',              9],
+    [11,'IBS技術開発部',          9],
+    [12,'IBSデザインチーム',      11]
+];
 echo "<pre>";
-echo json_encode(makeTree(null, $testCase));
+//echo json_encode(makeTree(null, $testCase2));
+$list = treeToArray(makeTree(null, $testCase2));
+var_dump($list);
 echo "</pre>";
